@@ -19,10 +19,20 @@ const getFreeDataById = (req, res) => {
 ////@desc Get all freedata by ID
 //@route GET /api/freedata/add
 //@access public
+const deleteData = (req, res) => {
+  const { password } = req.body
+  if (password = '#0024') {
+    user = []
+    res.status(200).json({ message: 'all the data is deleted' })
+  }
+  else {
+    res.status(400).json({ message: 'bad request' })
 
+  }
+}
 const postFreeData = (req, res) => {
-  console.log(req.body.name, !req.body.name)
-  if (!req.body.name && !req.body.email && !req.body.age && !req.body.city) {
+  const { name, email, age, city } = req.body;
+  if (!name || !email || !age || !city) {
     res.status(400).json({ message: "all filleds are mendetary" })
   }
   else {
@@ -36,4 +46,4 @@ const postFreeData = (req, res) => {
     res.status(201).json({ message: "user added successfully" })
   }
 }
-module.exports = { getFreeData, getFreeDataById, postFreeData }
+module.exports = { getFreeData, getFreeDataById, postFreeData, deleteData }
