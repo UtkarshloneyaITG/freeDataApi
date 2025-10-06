@@ -21,7 +21,7 @@ const getFreeDataById = (req, res) => {
 //@access public
 const deleteData = (req, res) => {
   const { password } = req.body
-  if (password = '#0024') {
+  if (password == '0024') {
     user = []
     res.status(200).json({ message: 'all the data is deleted' })
   }
